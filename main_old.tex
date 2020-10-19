@@ -12,9 +12,9 @@
 \graphicspath{{./figs/}}
 \oddsidemargin=.2in
 \evensidemargin=.2in
-\textwidth=5.93in
+\textwidth=5.9in
 \topmargin=-.5in
-\textheight=9.5in
+\textheight=9in
 \newcommand{\mytitle}{The Inconvenient Truth Behind the OVS Flow Cache in the Fast Path}
 \newcommand{\mytitletwo}{The Discrepancy of the Megaflow Cache in OVS}
 % wordnet: Discrepancy - an event that departs from expectations
@@ -23,46 +23,33 @@
 \pagestyle{fancy}
 \fancyhf{}
 \fancyhead[L]{\includegraphics[width=30pt]{figs/vswitch.png}}
-\fancyhead[R]{OVS Fall Conference 2018}
-\fancyfoot[L]{\vspace{0pt}\scriptsize{OVS Fall Conference \\
+\fancyhead[R]{Open vSwitch Fall 2018 Conference}
+\fancyfoot[L]{\vspace{0pt}\scriptsize{Open vSwitch 2018 Fall Conference\\
   5th annual conference focused on \\ Open vSwitch and OVN 
   }}
-\fancyfoot[R]{\vspace{0pt}\scriptsize{Proposal for a full talk \\ Levente Csikor\\ \mytitletwo }}
+\fancyfoot[R]{\vspace{0pt}\scriptsize{Proposal for a full talk \\ Levente Csikor, G\'abor R\'etv\'ari \\ \mytitletwo }}
 \fancyfoot[C]{\vspace{0pt}\includegraphics[width=32pt]{figs/vswitch.png}}
-
-\setlength{\headheight}{24pt} 
-
 
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
 \usepackage{xcolor}
 \usepackage{soul}
-\usepackage{xspace}
 
-\title{\mytitletwo}
-\author{Levente Csikor$^1$, G\'abor R\'etv\'ari$^2$}
-\date{\footnotesize
-    $^1$Budapest University of Technology and Economics, email: levente.csikor@gmail.com\\%
-    $^2$Budapest University of Technology and Economics, email: retvari@tmit.bme.hu\\%
-    \textit{ }\\
-    \normalsize{Proposal for a Full talk}
-}
 
 \begin{document}
-\maketitle
-
-
+% \begin{flushright}
+% Levente Csikor\\
+%  Magyar tud\'{o}sok k\"{o}r\'{u}tja 2.\\
+%  H-1117, Budapest, Hungary\\
+%  Tel: +36 1 463-2187\\
+%  \vskip2em \today
+% \end{flushright}
 
 \setlength{\parindent}{0pt}
 %\setlength{\parskip}{\baselineskip}
 \setlength{\parskip}{9pt}
 \setlist{noitemsep}
-
-%correct bad hyphenations here
-\hyphenation{op-tical net-works semi-conduc-tor data-path}
-
-\newcommand*\MFCg{\texttt{MFCg}\xspace}
 
 \newenvironment{macska_item}{
 \begin{itemize}
@@ -72,9 +59,30 @@
 }
 {\end{itemize}}
 
+% \large{\textbf{Revision of the submission 
+% \emph{``Transition to SDN is HARMLESS:  Hybrid {AR}chitecture for Migrating Legacy Ethernet Switches to SDN''}}
 
-\section{Introduction}
+\normalsize
+Dear OVSCON committee,
 
+We are writing you to propose an abstract for a full talk at the 5th Open vSwitch Fall Conference 2018 held on Dec 5 and 6 at Club Auto Sport in San Jose, California.
+
+Please find the required details below:
+\begin{itemize}
+    \item Title: \mytitletwo
+    \item Names, email address, and affiliation for each speaker:\\
+   
+    \begin{itemize}%[leftmargin=-.1in]
+       \item \textbf{Levente Csikor} (csikor@tmit.bme.hu) \\ Research Associate \\High Speed Networks Lab, Budapest University of Technology and Economics, Hungary
+        \item \textbf{G\'abor R\'etv\'ari} (retvari@tmit.bme.hu) \\ Senior Research Associate  \\High Speed Networks Lab, Budapest University of Technology and Economics, Hungary
+    \end{itemize}
+    
+    
+    \item Type of talk: \textbf{Full talk}
+
+\end{itemize}
+
+\section{Background}
 In the beginning, the aim of Open vSwitch (OVS) was to meet the needs of the open source networking community to provide a feature-rich OpenFlow  (OF) software switch offering a sophisticated way to manage the underlying network of virtual machines (VMs) in Linux-based hypervisors (e.g., KVM, XEN). 
 Due to its continuous evolution (just to mention a few: supporting standard management interfaces like NetFlow, complying with the latest OF standards, etc.), it has become the de-facto standard OF software switch implementation, recently has become the most popular network back-end for OpenStack deployments~\cite{ovs_acceleration}, and started to gain a foothold in serverless environments (e.g., OVN/Kubernetes\footnote{\url{https://github.com/openvswitch/ovn-kubernetes}}).
 Although, to catch up with the industrial needs, OVS had to be as fast as possible without sacrificing its most important advantages: high programmability and generality.
@@ -165,10 +173,12 @@ Furthermore, we will also present some immediate actions to overcome this proble
 
 
 
-{\bibliographystyle{abbrv}
-\footnotesize
-\bibliography{main}}
+
+% Caches, by their nature, have finite amount of resources thus the number of possible entries is limited (thousands of entries in microflow cache, while 10s of thousands of entries in MF) resulting in a ``cold'' entry to be removed committing the processing of the subsequent packets to slow path again.
+
+
+{\bibliographystyle{IEEEtran}
+\bibliography{ovsfall}}
 
 \end{document}
-
 
